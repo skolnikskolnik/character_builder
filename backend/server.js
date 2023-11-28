@@ -1,8 +1,8 @@
+require("dotenv").config();
 const express = require('express');
 const AWS = require('aws-sdk');
-require("dotenv").config();
+const cors = require("cors");
 
-// Set up AWS SDK with assumed role credentials
 const sts = new AWS.STS();
 
 const assumeRoleParams = {
@@ -27,6 +27,8 @@ const dynamodb = new AWS.DynamoDB.DocumentClient({
 
 const app = express();
 
+app.use(cors());
+
 app.get('/api/characters', (req, res) => {
     const params = {
         TableName: 'Characters',
@@ -43,7 +45,7 @@ app.get('/api/characters', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
