@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const TEXT_COLOR = "#2d3748";
 
 const FormElement = styled.div`
@@ -22,11 +23,15 @@ const Input = styled.input`
   border-radius: 0.25rem;
   outline: none;
   transition: border-color 0.2s;
-  color: ${TEXT_COLOR}; 
+  color: ${TEXT_COLOR};
 
   &:focus {
     border-color: #4299e1; 
   }
 `;
 
-export { FormElement, Label, Input }
+export {
+    FormElement,
+    Label,
+    Input,
+}

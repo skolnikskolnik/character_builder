@@ -27,6 +27,7 @@ const Input = styled.input`
   border-radius: 0.25rem;
   outline: none;
   transition: border-color 0.2s;
+  color: ${TEXT_COLOR};
 
   &:focus {
     border-color: #4299e1; 
@@ -41,6 +42,7 @@ const Textarea = styled.textarea`
   border-radius: 0.25rem;
   outline: none;
   transition: border-color 0.2s;
+  color: ${TEXT_COLOR};
 
   &:focus {
     border-color: #4299e1; 
@@ -82,29 +84,28 @@ const Label = styled.label`
     margin-bottom: 0.5rem;
 `
 
-const Select = styled.select`
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #cbd5e0;
-  border-radius: 0.25rem;
-  outline: none;
-  transition: border-color 0.2s;
-  color: ${TEXT_COLOR}; 
+const TextBox = styled.div`
+  text-align: center;
+  font-size: 11px;
+`
 
-  &:focus {
-    border-color: #4299e1;
-  }
+const ErrorMessage = styled(TextBox)`
+  color: red;
 `;
 
+const SuccessMessage = styled(TextBox)`
+  color: teal;
+`
+
 export {
-    Container,
-    Header,
-    Input,
-    Textarea,
-    Button,
-    ButtonContainer,
-    FormElement,
-    Label,
-    Select,
+  Container,
+  Header,
+  Input,
+  Textarea,
+  Button,
+  ButtonContainer,
+  FormElement,
+  Label,
+  ErrorMessage,
+  SuccessMessage,
 };

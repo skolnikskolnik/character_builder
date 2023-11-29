@@ -1,1 +1,0 @@
-export const characteristics = ["Force", "Constitution", "Dextérité", "Intelligence", "Sagesse", "Charisme", "Chance"]
