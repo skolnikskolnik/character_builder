@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 
+import CharacterCard from "@/components/CharacterCard";
+
 import { getCharacters, Character } from "../../lib/api"
 
 const HomePage = () => {
@@ -10,7 +12,6 @@ const HomePage = () => {
         const fetchCharacters = async () => {
             try {
                 const charactersData = await getCharacters();
-                console.log(charactersData)
                 setCharacters(charactersData);
             } catch (error) {
                 console.error("Error fetching characters: ", error)
@@ -25,7 +26,7 @@ const HomePage = () => {
             <h1>Character Builder App</h1>
             <ul>
                 {characters.map((character) => (
-                    <li key={character.id as string}>{character.name}</li>
+                    <CharacterCard key={character.id as string} data={character} />
                 ))}
             </ul>
         </div>

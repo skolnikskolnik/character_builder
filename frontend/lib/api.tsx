@@ -3,8 +3,22 @@ import axios from 'axios';
 const backendURL = 'http://localhost:5000'; // will update when deployed
 
 export interface Character {
-  id: String;
-  name: String;
+  id: string;
+  name: string;
+  age: string;
+  image: {
+    data: string;
+    contentType: string;
+  };
+  class: string;
+  race: string;
+  force: number;
+  constitution: number;
+  dexterity: number;
+  intelligence: number;
+  sagesse: number;
+  charisma: number;
+  chance: number;
 };
 
 export interface CharacterInput {
@@ -50,10 +64,9 @@ export const addCharacter = async (characterData: CharacterInput) => {
     image: characterData.selectedImage,
   }
 
-  console.log(characterData.selectedImage)
 
   try {
-    const response = await axios.post(`${backendURL}/api/characters`, postBody, {
+    await axios.post(`${backendURL}/api/characters`, postBody, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
